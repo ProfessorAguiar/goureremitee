@@ -1,3 +1,23 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-content [fullscreen]="true">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input type="email" fill="solid" label="Email" labelPlacement="floating"
+                helperText="Entre com uma email cadastrado" errorText="Entre com uma email cadastrado" ngModel
+                email #email></ion-input>
+
+              <ion-input type="password" fill="solid" label="Senha" labelPlacement="floating" ngModel password #senha></ion-input>
+              <ion-button (click)="logar(email.value, senha.value)">
+                Entrar
+                <ion-icon slot="end" name="star"></ion-icon>
+              </ion-button>
+
+
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  <ion-router-outlet *ngIf="logado"/>
 </ion-app>
